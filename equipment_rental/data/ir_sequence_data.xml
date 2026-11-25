@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="equipment_rental_sequence" model="ir.sequence">
+        <field name="name">Equipment Rental Sequence</field>
+        <field name="code">equipment.rental</field>
+        <field name="prefix">EQPR-</field>
+        <field name="padding">4</field>
+        <field name="number_increment">1</field>
+    </record>
+
+    <record id="equipment_item_sequence" model="ir.sequence">
+        <field name="name">Equipment Item Sequence</field>
+        <field name="code">equipment.item</field>
+        <field name="prefix">EQP-</field>
+        <field name="padding">4</field>
+        <field name="number_increment">1</field>
+
+    </record>
+</odoo>
