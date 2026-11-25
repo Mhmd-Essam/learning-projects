@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="equipment_item_tree_view" model="ir.ui.view">
+        <field name="name">equipment.item.tree</field>
+        <field name="model">equipment.item</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="equipment_parcode"/>
+                <field name="name" />
+                <field name="description" />
+                <field name="status" />
+                <field name="type" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="equipment_item_form_view" model="ir.ui.view">
+        <field name="name">equipment.item.form</field>
+        <field name="model">equipment.item</field>
+        <field name="arch" type="xml">
+            <form staring="Equipment Item">
+                <sheet>
+                    <div>
+                        <field name="equipment_parcode" readonly="1"/>
+                    </div>
+                    <group>
+                        <field name="name" />
+                        <field name="status" widget="statusbar"/>
+                        <field name="type" />
+                        <field name="description" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="equipment_item_action" model="ir.actions.act_window">
+        <field name="name">Equipment Items</field>
+        <field name="res_model">equipment.item</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="equipment_app_menu" name="Equipment APP" sequence="10"/>
+    <menuitem id="equipment_item_menu" name="Equipment Items" parent="equipment_app_menu" action="equipment_item_action" sequence="10"/>
+</odoo>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="equipment_rental_tree_view" model="ir.ui.view">
+        <field name="name">equipment.rental.tree</field>
+        <field name="model">equipment.rental</field>
+        <field name="arch" type="xml">
+            <tree create="false" edit="false" delete="false">
+                <field name="equipment_id" />
+                <field name="customer_name" />
+                <field name="rental_from" />
+                <field name="rental_to" />
+                <field name="actual_return_date" decoration-danger=" is_return_date_invalid"
+                    decoration-success="is_return_date_valid" />
+                <field name="status" readonly="1" />
+                <field name="is_return_date_valid" column_invisible="1" />
+                <field name="is_return_date_invalid" column_invisible="1" />
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="equipment_rental_form_view" model="ir.ui.view">
+        <field name="name">equipment.rental.form</field>
+        <field name="model">equipment.rental</field>
+        <field name="arch" type="xml">
+            <form string="Equipment Rental">
+                <header>
+                    <field name="status" widget="statusbar" readonly="1" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="customer_name" />
+                        <field name="customer_contact" />
+                    </group>
+                    <group>
+                        <field name="equipment_id" />
+                        <field name="rental_from" />
+                        <field name="rental_to" />
+                        <field name="actual_return_date" decoration-danger="is_return_date_invalid"
+                            decoration-success="is_return_date_valid" />
+                        <field name="is_return_date_invalid" invisible="1" />
+                        <field name="is_return_date_valid" invisible="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="equipment_rental_action" model="ir.actions.act_window">
+        <field name="name">Equipment Rentals</field>
+        <field name="res_model">equipment.rental</field>
+        <field name="view_mode">tree,form</field>
+
+    </record>
+
+    <menuitem id="equipment_rental_menu" name="Equipment Rentals" parent="equipment_app_menu"
+        action="equipment_rental_action" sequence="20" />
+
+</odoo>
