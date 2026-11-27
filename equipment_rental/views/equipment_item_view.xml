@@ -18,11 +18,11 @@
         <field name="name">equipment.item.form</field>
         <field name="model">equipment.item</field>
         <field name="arch" type="xml">
-            <form staring="Equipment Item">
+            <form string="Equipment Item">
                 <sheet>
-                    <div>
+                    <group>
                         <field name="equipment_parcode" readonly="1"/>
-                    </div>
+                    </group>
                     <group>
                         <field name="name" />
                         <field name="status" widget="statusbar"/>

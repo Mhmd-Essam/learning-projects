@@ -29,13 +29,16 @@ class EquipmentItem(models.Model):
         required=True,
         copy=False,
         readonly=True,
-        default=lambda self: self.env["ir.sequence"].next_by_code("equipment.item"),
+        default=lambda self: "New",
+        
     )
-
+    @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
             name = vals.get("name")
             company_id = vals.get("company_id")
+            if vals.get("equipment_parcode", "New") == "New":
+                vals["equipment_parcode"] = self.env["ir.sequence"].next_by_code("equipment.item") or "New"
             existing_equipment = self.env["equipment.item"].search(
                 [("name", "=", name), ("company_id", "=", company_id)]
             )

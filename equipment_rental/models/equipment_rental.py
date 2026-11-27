@@ -25,7 +25,13 @@ class EquipmentRental(models.Model):
     )
     is_return_date_invalid = fields.Boolean(compute="_compute_is_return_date_invalid")
     is_return_date_valid = fields.Boolean(compute="_compute_is_return_date_valid")
-
+    company_id = fields.Many2one(
+        "res.company",
+        string="Company",
+        default=lambda self: self.env.company,
+        required=True,
+    )
+    
     def create(self, vals_list):
         for vals in vals_list:
             equipment = self.env["equipment.item"].browse(vals.get("equipment_id"))
