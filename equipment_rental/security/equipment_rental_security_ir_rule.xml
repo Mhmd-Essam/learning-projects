@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="equipment_item_multi_company" model="ir.rule">
+        <field name="name">Equipment Item Multi Company</field>
+        <field name="model_id" ref="model_equipment_item" />
+        <field name="domain_force">[('company_id', 'in',company_ids)]</field>
+    </record>
+    
+    <record id="equipment_rental_multi_company" model="ir.rule">
+        <field name="name">Equipment Rental Multi Company</field>
+        <field name="model_id" ref="model_equipment_rental" />
+        <field name="domain_force">[('company_id', 'in', user.company_ids.ids)]</field>
+    </record>
+</odoo> 

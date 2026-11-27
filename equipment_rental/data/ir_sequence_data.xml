@@ -6,6 +6,7 @@
         <field name="prefix">EQPR-</field>
         <field name="padding">4</field>
         <field name="number_increment">1</field>
+        <field name="company_id" eval="False" />
     </record>
 
     <record id="equipment_item_sequence" model="ir.sequence">
@@ -14,6 +15,6 @@
         <field name="prefix">EQP-</field>
         <field name="padding">4</field>
         <field name="number_increment">1</field>
-
+        <field name="company_id" eval="False" />
     </record>
 </odoo>
